@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h2>My articles:</h2>
+    <h3><%= link_to "Create new", new_article_path %></h3>
+      <ol>
+      <% @articles.each do |article| %>
+          <li>
+            <h3><%= link_to article.title, article_path(article) %></h3>
+          </li>
+            <p><%= article.content %></p>
+            <%= link_to "Edit", edit_article_path(article) %>
+            <%= link_to "Delete", article_path(article),
+                  method: :delete,
+                  data: { confirm: "Are you sure you want to delete this article? "} %>
+          </li>
+      <% end %>
+      </ol>
+  </div>
+</div>
